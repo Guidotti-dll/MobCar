@@ -61,7 +61,7 @@ const ListCars = () => {
       <CarList>
         {cars.map((car) => (
           <CardCar key={car.id}>
-            <Images src={car.picture} alt='Carro' />
+            <Images back={(props) => car.picture} alt='Carro' />
             <Description>
               <Model>{car.name}</Model>
               <Year>{car.year}</Year>

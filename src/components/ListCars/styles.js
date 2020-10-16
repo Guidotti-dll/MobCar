@@ -18,10 +18,17 @@ export const CardCar = styled.li`
   flex-wrap: wrap;
 `
 
-export const Images = styled.img`
+export const Images = styled.div`
   height: 60%;
-  max-width: 90vw;
+  width: 120px;
+  max-width: 80vw;
+  background-image: url(${(props) => props.back});
+  background-size: cover;
+  background-position: center;
   border-radius: 8px;
+  /* height: 60%;
+  max-width: 90vw;
+  border-radius: 8px; */
 `
 
 export const Description = styled.div`

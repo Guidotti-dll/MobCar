@@ -1,9 +1,12 @@
+const generateId = require('../utils/generateId')
+
 const initial = { cars: [] }
 
 const mainReducer = (state, action) => {
   switch (action.type) {
     case 'addCar':
-      action.car.id = state.cars[state.cars.length - 1] + 1
+      // action.car.id = state.cars[state.cars.length - 1] + 1
+      action.car.id = generateId()
       var cars = [...state.cars, action.car]
       localStorage.setItem('cars', JSON.stringify(cars))
       return { ...state, cars }
