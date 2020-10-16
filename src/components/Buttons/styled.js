@@ -10,11 +10,6 @@ export const Button = styled.button`
   font-size: 24px;
   cursor: pointer;
 
-  &.branco {
-    background-color: #ffffff;
-    color: #000;
-  }
-
   &.modal {
     width: 109px;
     height: 40px;

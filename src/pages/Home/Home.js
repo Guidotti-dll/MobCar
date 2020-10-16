@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   Wrapper,
   Footer,
@@ -23,8 +23,22 @@ import FormModal from '../../components/FormModal'
 import { AiFillCar } from 'react-icons/ai'
 import { AiOutlineClose } from 'react-icons/ai'
 
+import { useStateValue } from '../../context/state'
+
 const Home = () => {
+  const [state, dispatch] = useStateValue()
   const [modalState, setModalState] = useState(false)
+
+  useEffect(() => {
+    if (localStorage.cars) {
+      dispatch({
+        type: 'setCars',
+        cars: JSON.parse(localStorage.getItem('cars') || []),
+      })
+    } else {
+      fetchFromDB()
+    }
+  }, [])
 
   function openModal() {
     setModalState(true)
@@ -32,6 +46,17 @@ const Home = () => {
 
   function closeModal() {
     setModalState(false)
+  }
+
+  function fetchFromDB() {
+    fetch('/database.json')
+      .then((response) => response.json())
+      .then((response) => {
+        dispatch({
+          type: 'setCars',
+          cars: response.cars,
+        })
+      })
   }
 
   return (
@@ -59,7 +84,7 @@ const Home = () => {
                   <AiOutlineClose />
                 </Btn>
               </ModalHeader>
-              <FormModal />
+              <FormModal closeModal={closeModal} />
             </FormContainer>
           </ModalContent>
         </Content>
