@@ -27,3 +27,30 @@ export const NavBar = styled.nav`
     cursor: pointer;
   }
 `
+
+export const SideBar = styled.div`
+  width: 448px;
+  top: 0;
+  right: ${(props) => props.open ? '0' : '-448px' };
+  display: flex;
+  position: fixed;
+  height: 100%;
+  background: #e0e0e0;
+  box-shadow: 0px 2px 8px rgba(122, 122, 122, 0.15);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  transition: right .4s;
+
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  z-index: 2;
+`
+
+export const HeaderSideBar = styled.div`
+  width: 100%;
+  height: 15px;
+  display: flex;
+  justify-content:flex-end;
+  padding: 10px;
+`
