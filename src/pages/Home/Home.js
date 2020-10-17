@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {
   Wrapper,
   Footer,
@@ -8,7 +8,7 @@ import {
   TitlesZone,
   Title,
   SubTitle,
-  FormContainer,
+
 } from './styles'
 
 import { ModalContent, ModalHeader } from '../../components/Modal/styles'
@@ -16,6 +16,7 @@ import { ModalContent, ModalHeader } from '../../components/Modal/styles'
 import { Button, Btn } from '../../components/Buttons/styled'
 
 import HeaderBar from '../../components/HeaderBar'
+
 
 import ListCars from '../../components/ListCars'
 import FormModal from '../../components/FormModal'
@@ -25,9 +26,11 @@ import { AiOutlineClose } from 'react-icons/ai'
 
 import { useStateValue } from '../../context/state'
 
-const Home = () => {
+const Home = () => {// eslint-disable-next-line
   const [state, dispatch] = useStateValue()
   const [modalState, setModalState] = useState(false)
+
+  const buttonRef = useRef()
 
   useEffect(() => {
     if (localStorage.cars) {
@@ -38,14 +41,20 @@ const Home = () => {
     } else {
       fetchFromDB()
     }
+    // eslint-disable-next-line
   }, [])
 
   function openModal() {
     setModalState(true)
+    buttonRef.current.click()
   }
 
   function closeModal() {
     setModalState(false)
+  }
+
+  function testePair (){
+    console.log('banana')
   }
 
   function fetchFromDB() {
@@ -62,19 +71,20 @@ const Home = () => {
   return (
     <Wrapper>
       <Main>
-        <HeaderBar />
+      <HeaderBar testePair={testePair} />
         <Content>
           <Controller>
             <TitlesZone>
               <Title>Cars</Title>
               <SubTitle>Choose the perfect one for you</SubTitle>
             </TitlesZone>
-            <Button onClick={openModal}>Add new</Button>
+            <Button ref={buttonRef} onClick={openModal}>
+              Add new
+            </Button>
           </Controller>
           <ListCars />
 
-          <ModalContent isOpen={modalState} onRequestClose={closeModal}>
-            <FormContainer>
+          <ModalContent open={modalState} onClose={closeModal}>
               <ModalHeader>
                 <div>
                   <AiFillCar />
@@ -85,7 +95,6 @@ const Home = () => {
                 </Btn>
               </ModalHeader>
               <FormModal closeModal={closeModal} />
-            </FormContainer>
           </ModalContent>
         </Content>
       </Main>

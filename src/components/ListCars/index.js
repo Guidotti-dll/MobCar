@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { HiOutlineDotsVertical } from 'react-icons/hi'
 
 import { useStateValue } from '../../context/state'
@@ -27,6 +27,20 @@ const ListCars = () => {
   const [modalEditState, setModalEditState] = useState(false)
   const [dropDownOpen, setDropDownOpen] = useState(false)
   const [modalCar, setModalCar] = useState([])
+
+  useEffect(() => {
+    document.addEventListener('click', handleClick)
+    return () => {
+      document.removeEventListener('click', handleClick)
+    }
+  })
+
+  function handleClick(e) {
+    var target = e.target.className
+    if (!target || target.baseVal !== 'dropdownButton') {
+      setDropDownOpen(false)
+    }
+  }
 
   function openModalInfo(car) {
     setModalInfoState(true)
@@ -76,7 +90,10 @@ const ListCars = () => {
                     : setDropDownOpen(car.id)
                 }}
               >
-                <HiOutlineDotsVertical fontSize={35} />
+                <HiOutlineDotsVertical
+                  className='dropdownButton'
+                  fontSize={35}
+                />
               </Btn>
               <Options
                 className={dropDownOpen === car.id ? 'dropOpen' : 'dropClose'}

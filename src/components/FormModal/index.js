@@ -6,11 +6,11 @@ import { useStateValue } from '../../context/state'
 
 import { Button } from '../Buttons/styled'
 
-const FormModal = ({ closeModal }) => {
-  const [{ cars }, dispatch] = useStateValue()
+const FormModal = ({ closeModal }) => {// eslint-disable-next-line
+  const [state, dispatch] = useStateValue()
   const [picture, setPicture] = useState('')
   const [name, setName] = useState('')
-  const [year, setYear] = useState('')
+  const [year, setYear] = useState()
   const [brand, setBrand] = useState('')
   const [color, setColor] = useState('')
   const [price, setPrice] = useState()
@@ -52,6 +52,8 @@ const FormModal = ({ closeModal }) => {
         <Input
           placeholder='Year'
           name='year'
+          type='number'
+          min='0'
           value={year}
           onChange={(e) => setYear(e.target.value)}
           required

@@ -24,5 +24,6 @@ export const NavBar = styled.nav`
     height: 19px;
     position: absolute;
     right: 18px;
+    cursor: pointer;
   }
 `

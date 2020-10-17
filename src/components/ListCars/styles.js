@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const CarList = styled.ul`
   width: 100%;
-  height: 100%;
   list-style: none;
   padding-top: 24px;
 `
@@ -26,9 +25,6 @@ export const Images = styled.div`
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  /* height: 60%;
-  max-width: 90vw;
-  border-radius: 8px; */
 `
 
 export const Description = styled.div`
@@ -41,6 +37,10 @@ export const Description = styled.div`
 
   @media (max-width: 700px) {
     padding: 14px 10px;
+  }
+
+  @media (max-width: 293px) {
+    display: none;
   }
 `
 
@@ -103,12 +103,4 @@ export const Options = styled.ul`
       background-color: #c1c1c1;
     }
   }
-`
-
-export const Info = styled.p`
-  font-size: 16px;
-  font-family: helvetica;
-  display: flex;
-  justify-content: center;
-  margin: 8px;
 `

@@ -1,20 +1,8 @@
 import styled from 'styled-components'
-import Modal from 'react-modal'
+import Dialog from '@material-ui/core/Dialog';
 
-export const ModalContent = styled(Modal)`
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  transition: 0.5s;
-`
-
-export const ModalContainer = styled.div`
+export const ModalContent = styled(Dialog)`
+  & .MuiPaper-root{
   width: 448px;
   height: fit-content;
   background-color: #fff;
@@ -24,6 +12,7 @@ export const ModalContainer = styled.div`
 
   @media (max-width: 500px) {
     width: 97%;
+  }
   }
 `
 
@@ -53,20 +42,24 @@ export const ModalImage = styled.img`
 `
 
 export const ModalDescription = styled.div`
-  width: 100%;
+  width: 75%;
   display: flex;
   flex-wrap: wrap;
   padding: 12px;
-`
-export const DescriptionContainer = styled.div`
-  width: 50%;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+  margin: auto;
+  justify-content: space-between;
 
-  @media (max-width: 200px) {
-    width: 100%;
+  @media (max-width: 392px) {
+    width: 50%;
   }
+`
+
+export const Info = styled.p`
+  font-size: 16px;
+  font-family: helvetica;
+  display: flex;
+  justify-content: center;
+  margin: 8px;
 `
 
 export const ModalActions = styled.div`

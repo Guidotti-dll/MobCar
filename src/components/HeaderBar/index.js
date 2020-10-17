@@ -4,12 +4,22 @@ import { Header, NavBar } from './styles'
 import Logo from '../../assets/logo.png'
 import Menu from '../../assets/menu.png'
 
-const HeaderBar = () => {
+const HeaderBar = ({testePair}) => {
+
+  function banana () {
+    testePair()
+  }
+
   return (
     <Header>
       <NavBar>
         <img className='logo' src={Logo} alt='MobCar' />
-        <img className='menu' src={Menu} alt='Menu' />
+        <img
+          className='menu'
+          onClick={banana}
+          src={Menu}
+          alt='Menu'
+        />
       </NavBar>
     </Header>
   )

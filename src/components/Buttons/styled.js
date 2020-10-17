@@ -7,7 +7,7 @@ export const Button = styled.button`
   border: 1px solid #000000;
   background-color: #000000;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
 
   &.modal {

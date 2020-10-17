@@ -3,7 +3,6 @@ import { FormContainer, InputContainer, Input } from './styles'
 import {
   ModalActions,
   ModalContent,
-  ModalContainer,
   ModalHeader,
 } from '../Modal/styles'
 
@@ -14,11 +13,11 @@ import { Button, Btn } from '../Buttons/styled'
 import { AiFillCar } from 'react-icons/ai'
 import { AiOutlineClose } from 'react-icons/ai'
 
-const EditFormModal = ({ modalCar, modalEditState, closeModalEdit }) => {
-  const [{ cars }, dispatch] = useStateValue()
+const EditFormModal = ({ modalCar, modalEditState, closeModalEdit }) => {// eslint-disable-next-line
+  const [ state , dispatch] = useStateValue() 
   const [picture, setPicture] = useState('')
   const [name, setName] = useState('')
-  const [year, setYear] = useState('')
+  const [year, setYear] = useState()
   const [brand, setBrand] = useState('')
   const [color, setColor] = useState('')
   const [price, setPrice] = useState()
@@ -51,8 +50,7 @@ const EditFormModal = ({ modalCar, modalEditState, closeModalEdit }) => {
   }
 
   return (
-    <ModalContent isOpen={modalEditState} onRequestClose={closeModalEdit}>
-      <ModalContainer>
+    <ModalContent open={modalEditState} onClose={closeModalEdit}>
         <ModalHeader>
           <div>
             <AiFillCar />
@@ -81,6 +79,8 @@ const EditFormModal = ({ modalCar, modalEditState, closeModalEdit }) => {
             <Input
               placeholder='Year'
               name='year'
+              type='number'
+              min='0'
               value={year}
               onChange={(e) => setYear(e.target.value)}
               required
@@ -115,7 +115,6 @@ const EditFormModal = ({ modalCar, modalEditState, closeModalEdit }) => {
             </Button>
           </ModalActions>
         </FormContainer>
-      </ModalContainer>
     </ModalContent>
   )
 }

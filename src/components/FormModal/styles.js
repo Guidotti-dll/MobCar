@@ -24,4 +24,7 @@ export const Input = styled.input`
   box-sizing: border-box;
   padding-left: 7px;
   margin-bottom: 10px;
+
+  &:focus {
+    outline: 2px solid rgba(0, 173, 238, 0.8);
 `

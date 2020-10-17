@@ -3,30 +3,30 @@ const generateId = require('../utils/generateId')
 const initial = { cars: [] }
 
 const mainReducer = (state, action) => {
+  var tempCars
   switch (action.type) {
     case 'addCar':
-      // action.car.id = state.cars[state.cars.length - 1] + 1
       action.car.id = generateId()
-      var cars = [...state.cars, action.car]
-      localStorage.setItem('cars', JSON.stringify(cars))
-      return { ...state, cars }
+      tempCars = [...state.cars, action.car]
+      localStorage.setItem('cars', JSON.stringify(tempCars))
+      return { ...state, cars: tempCars }
 
     case 'setCars':
       localStorage.setItem('cars', JSON.stringify(action.cars))
       return { ...state, cars: action.cars }
 
     case 'updateCars':
-      var cars = state.cars
-      var carIndex = cars.findIndex((car) => car.id === action.car.id)
-      cars[carIndex] = action.car
-      localStorage.setItem('cars', JSON.stringify(cars))
-      return { ...state, cars }
+      tempCars = state.cars
+      let carIndex = tempCars.findIndex((car) => car.id === action.car.id)
+      tempCars[carIndex] = action.car
+      localStorage.setItem('cars', JSON.stringify(tempCars))
+      return { ...state, cars: tempCars }
 
     case 'deleteCars':
-      var cars = state.cars
-      cars = cars.filter((car) => car.id !== action.id)
-      localStorage.setItem('cars', JSON.stringify(cars))
-      return { ...state, cars }
+      tempCars = state.cars
+      tempCars = tempCars.filter((car) => car.id !== action.id)
+      localStorage.setItem('cars', JSON.stringify(tempCars))
+      return { ...state, cars: tempCars }
     default:
       return state
   }

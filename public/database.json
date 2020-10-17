@@ -3,8 +3,8 @@
     {
       "id": 1,
       "name": "Fiesta",
-      "year": "2003",
-      "brand": "FORD",
+      "year": 2003,
+      "brand": "Ford",
       "price": 102,
       "color": "preto",
       "picture": "https://img.olx.com.br/images/48/483048696573145.jpg"
@@ -12,8 +12,8 @@
     {
       "id": 2,
       "name": "Fusion",
-      "year": "2016",
-      "brand": "FORD",
+      "year": 2016,
+      "brand": "Ford",
       "price": 200,
       "color": "branco",
       "picture": "https://img.olx.com.br/images/48/482009692010577.jpg"
@@ -21,8 +21,8 @@
     {
       "id": 3,
       "name": "HB20",
-      "year": "2015",
-      "brand": "HYUNDAI",
+      "year": 2015,
+      "brand": "Hyundai",
       "price": 150,
       "color": "preto",
       "picture": "https://img.olx.com.br/images/37/372052578585674.jpg"
@@ -30,8 +30,8 @@
     {
       "id": 4,
       "name": "Pegeout 307",
-      "year": "2011",
-      "brand": "PEUGEOT",
+      "year": 2011,
+      "brand": "Peugeout",
       "price": 80,
       "color": "preto",
       "picture": "https://img.olx.com.br/images/50/504022455138469.jpg"
@@ -39,8 +39,8 @@
     {
       "id": 5,
       "name": "Gol G4",
-      "year": "2005",
-      "brand": "VOLKSWAGEN",
+      "year": 2005,
+      "brand": "Volkswagen",
       "price": 100,
       "color": "branco",
       "picture": "https://img.olx.com.br/images/50/501080699718997.jpg"

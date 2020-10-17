@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { ModalContainer } from '../../components/Modal/styles'
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -25,7 +24,7 @@ export const Main = styled.main`
   padding-bottom: 8vh;
   width: 100%;
   display: flex;
-  justify-content: fle;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 `
@@ -68,7 +67,4 @@ export const SubTitle = styled.h2`
   font-family: Helvetica;
   font-size: 20px;
   font-weight: 400;
-`
-export const FormContainer = styled(ModalContainer)`
-  height: fit-content;
 `

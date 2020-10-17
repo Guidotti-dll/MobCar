@@ -2,15 +2,12 @@ import React from 'react'
 
 import {
   ModalContent,
-  ModalContainer,
   ModalHeader,
   ModalImage,
   ModalDescription,
-  DescriptionContainer,
   ModalActions,
+  Info,
 } from '../../components/Modal/styles'
-
-import { Info } from './styles'
 
 import { Btn, Button } from '../Buttons/styled'
 
@@ -18,8 +15,7 @@ import { AiFillCar } from 'react-icons/ai'
 import { AiOutlineClose } from 'react-icons/ai'
 
 const InfoModal = ({ modalCar, modalInfoState, closeModalInfo }) => (
-  <ModalContent isOpen={modalInfoState} onRequestClose={closeModalInfo}>
-    <ModalContainer>
+  <ModalContent open={modalInfoState} onClose={closeModalInfo}>
       <ModalHeader>
         <div>
           <AiFillCar />
@@ -31,19 +27,20 @@ const InfoModal = ({ modalCar, modalInfoState, closeModalInfo }) => (
       </ModalHeader>
       <ModalImage src={modalCar.picture} />
       <ModalDescription>
-        <DescriptionContainer>
-          <Info>Brand: {modalCar.brand} </Info>
-          <Info>Age: {modalCar.year}</Info>
-        </DescriptionContainer>
-        <DescriptionContainer>
-          <Info>Price: R$ {modalCar.price}</Info>
-          <Info>Color: {modalCar.color}</Info>
-        </DescriptionContainer>
+        <Info>Brand: {modalCar.brand} </Info>
+        <Info>Year: {modalCar.year}</Info>
+        <Info>
+          Price:{' '}
+          {Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          }).format(modalCar.price)}
+        </Info>
+        <Info>Color: {modalCar.color}</Info>
       </ModalDescription>
       <ModalActions>
-        <Button className='modal'>Rent</Button>
+        <Button className='modal'>Rent car</Button>
       </ModalActions>
-    </ModalContainer>
   </ModalContent>
 )
 
