@@ -5,6 +5,7 @@ import {
   ModalHeader,
   ModalImage,
   ModalDescription,
+  InfoContainer,
   ModalActions,
   Info,
 } from '../../components/Modal/styles'
@@ -27,8 +28,11 @@ const InfoModal = ({ modalCar, modalInfoState, closeModalInfo }) => (
       </ModalHeader>
       <ModalImage src={modalCar.picture} />
       <ModalDescription>
+        <InfoContainer>
         <Info>Brand: {modalCar.brand} </Info>
         <Info>Year: {modalCar.year}</Info>
+        </InfoContainer>
+        <InfoContainer>
         <Info>
           Price:{' '}
           {Intl.NumberFormat('pt-BR', {
@@ -37,6 +41,7 @@ const InfoModal = ({ modalCar, modalInfoState, closeModalInfo }) => (
           }).format(modalCar.price)}
         </Info>
         <Info>Color: {modalCar.color}</Info>
+        </InfoContainer>
       </ModalDescription>
       <ModalActions>
         <Button className='modal'>Rent car</Button>

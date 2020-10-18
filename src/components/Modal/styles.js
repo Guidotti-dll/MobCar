@@ -51,25 +51,24 @@ export const ModalImage = styled.img`
   object-fit: cover;
 `
 
-export const ModalDescription = styled.div`
+export const ModalDescription = styled.table`
   width: 75%;
   display: flex;
   flex-wrap: wrap;
   padding: 12px;
   margin: auto;
-  justify-content: space-between;
-
-  @media (max-width: 392px) {
-    width: 50%;
-  }
+  justify-content: center;
 `
 
-export const Info = styled.p`
+export const InfoContainer = styled.tr`
+`
+
+export const Info = styled.td`
   font-size: 16px;
   font-family: helvetica;
   display: flex;
-  justify-content: center;
-  margin: 8px;
+  justify-content: flex-start;
+  margin: 14px;
 `
 
 export const ModalActions = styled.div`
