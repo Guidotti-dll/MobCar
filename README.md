@@ -6,7 +6,7 @@
 <p>Esta aplicação tem como objetivo lista todos os veiculos cadastrados pelo gerente.</p>
 
 <p  align='center'>
-<img src="./src/assets/MobCar.png">
+<img src="./src/prints/MobCar.png">
 </p>
 
 ## Instalação
@@ -41,12 +41,12 @@ Graças ao design responsivo a aplicação pode ser vista de diversas formas e e
 
 ### Web
 
-![](./src/assets/MobCarWeb.png)
+![](./src/prints/MobCarWeb.png)
 
 ### Mobile
 
-<img src="./src/assets/MobCarMobileView.png" />
-<img src="./src/assets/MobCarMobileCreate.png" />
+<img src="./src/prints/MobCarMobileView.png" />
+<img src="./src/prints/MobCarMobileCreate.png" />
 
 ### Tecnologias
 

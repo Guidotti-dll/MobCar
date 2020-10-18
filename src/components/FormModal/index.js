@@ -65,8 +65,15 @@ const FormModal = ({ modalCar ,closeModal, modalState, edit }) => {// eslint-dis
     setBrand(modalCar.brand)
     setColor(modalCar.color)
     setPrice(modalCar.price)
-    }// eslint-disable-next-line
-  }, [modalCar])
+    }else {
+      setPicture('')
+    setName('')
+    setYear()
+    setBrand('')
+    setColor('')
+    setPrice()
+    } 
+  }, [edit ,modalCar])
 
 
   return (
