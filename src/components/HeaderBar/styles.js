@@ -35,7 +35,7 @@ export const SideBar = styled.div`
   display: flex;
   position: fixed;
   height: 100%;
-  background: #e0e0e0;
+  background: #f2f2f2;
   box-shadow: 0px 2px 8px rgba(122, 122, 122, 0.15);
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
