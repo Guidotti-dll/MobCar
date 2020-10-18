@@ -11,9 +11,8 @@ import {
 
 } from './styles'
 
-import { ModalContent, ModalHeader } from '../../components/Modal/styles'
 
-import { Button, Btn } from '../../components/Buttons/styled'
+import { Button } from '../../components/Buttons/styled'
 
 import HeaderBar from '../../components/HeaderBar'
 
@@ -21,8 +20,6 @@ import HeaderBar from '../../components/HeaderBar'
 import ListCars from '../../components/ListCars'
 import FormModal from '../../components/FormModal'
 
-import { AiFillCar } from 'react-icons/ai'
-import { AiOutlineClose } from 'react-icons/ai'
 
 import { useStateValue } from '../../context/state'
 
@@ -78,24 +75,15 @@ const Home = () => {// eslint-disable-next-line
               <Title>Cars</Title>
               <SubTitle>Choose the perfect one for you</SubTitle>
             </TitlesZone>
-            <Button ref={buttonRef} onClick={openModal}>
+            <Button ref={buttonRef}  onClick={openModal}>
               Add new
             </Button>
           </Controller>
           <ListCars />
-
-          <ModalContent open={modalState} onClose={closeModal}>
-              <ModalHeader>
-                <div>
-                  <AiFillCar />
-                  <h1>New Car</h1>
-                </div>
-                <Btn onClick={closeModal}>
-                  <AiOutlineClose />
-                </Btn>
-              </ModalHeader>
-              <FormModal closeModal={closeModal} />
-          </ModalContent>
+          <FormModal
+            modalState={modalState}
+            closeModal={closeModal}
+          />
         </Content>
       </Main>
       <Footer>&copy; 2020. All rights reserved to Mobcar.</Footer>

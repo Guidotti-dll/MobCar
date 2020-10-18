@@ -3,8 +3,9 @@ import { HiOutlineDotsVertical } from 'react-icons/hi'
 
 import { useStateValue } from '../../context/state'
 
-import InfoModal from './infoModal'
-import EditModal from '../EditFormModal'
+import InfoModal from '../InfoModal'
+// import EditModal from '../EditFormModal'
+import FormModal from '../FormModal'
 
 import { AiFillCar } from 'react-icons/ai'
 import { AiOutlineClose } from 'react-icons/ai'
@@ -33,6 +34,7 @@ const ListCars = () => {
   const [modalDeleteState, setModalDeleteState] = useState(false)
   const [dropDownOpen, setDropDownOpen] = useState(false)
   const [modalCar, setModalCar] = useState([])
+  const [editState, setEditState] = useState(false)
 
   useEffect(() => {
     document.addEventListener('click', handleClick)
@@ -62,6 +64,7 @@ const ListCars = () => {
     setModalEditState(true)
     setDropDownOpen(false)
     setModalCar(car)
+    setEditState(true)
   }
 
   function closeModalEdit() {
@@ -130,10 +133,11 @@ const ListCars = () => {
         closeModalInfo={closeModalInfo}
       />
 
-      <EditModal
+      <FormModal
         modalCar={modalCar}
-        modalEditState={modalEditState}
-        closeModalEdit={closeModalEdit}
+        modalState={modalEditState}
+        closeModal={closeModalEdit}
+        edit={editState}
       />
 
       <ModalContent open={modalDeleteState} onClose={closeModalDelete}>

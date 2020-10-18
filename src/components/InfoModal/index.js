@@ -8,7 +8,7 @@ import {
   InfoContainer,
   ModalActions,
   Info,
-} from '../../components/Modal/styles'
+} from '../Modal/styles'
 
 import { Btn, Button } from '../Buttons/styled'
 
