@@ -16,6 +16,16 @@ export const ModalContent = styled(Dialog)`
   }
 `
 
+export const ModalDelete = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & p{
+    padding: 10px 0;
+  }
+`
+
 export const ModalHeader = styled.header`
   display: flex;
   justify-content: space-between;

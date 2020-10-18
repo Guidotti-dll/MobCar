@@ -6,6 +6,9 @@ import { useStateValue } from '../../context/state'
 import InfoModal from './infoModal'
 import EditModal from '../EditFormModal'
 
+import { AiFillCar } from 'react-icons/ai'
+import { AiOutlineClose } from 'react-icons/ai'
+
 import {
   CardCar,
   CarList,
@@ -19,12 +22,15 @@ import {
 } from './styles'
 
 import { Btn } from '../Buttons/styled'
+import {  ModalContent ,ModalDelete, ModalHeader } from '../Modal/styles'
+import { Button } from '../Buttons/styled'
 
 const ListCars = () => {
   const [{ cars }, dispatch] = useStateValue()
 
   const [modalInfoState, setModalInfoState] = useState(false)
   const [modalEditState, setModalEditState] = useState(false)
+  const [modalDeleteState, setModalDeleteState] = useState(false)
   const [dropDownOpen, setDropDownOpen] = useState(false)
   const [modalCar, setModalCar] = useState([])
 
@@ -62,12 +68,24 @@ const ListCars = () => {
     setModalEditState(false)
   }
 
+  function openModalDelete(car) {
+    setModalDeleteState(true)
+    setDropDownOpen(false)
+    setModalCar(car)
+  }
+
+  function closeModalDelete() {
+    setModalDeleteState(false)
+  }
+
+
   function deleteCar(id) {
     dispatch({
       type: 'deleteCars',
       id: id,
     })
     setDropDownOpen(false)
+    closeModalDelete()  
   }
 
   return (
@@ -100,7 +118,7 @@ const ListCars = () => {
               >
                 <li onClick={() => openModalInfo(car)}>View</li>
                 <li onClick={() => openModalEdit(car)}>Edit</li>
-                <li onClick={() => deleteCar(car.id)}>Delete</li>
+                <li onClick={() => openModalDelete(car)}>Delete</li>
               </Options>
             </OptionsContainer>
           </CardCar>
@@ -117,6 +135,22 @@ const ListCars = () => {
         modalEditState={modalEditState}
         closeModalEdit={closeModalEdit}
       />
+
+      <ModalContent open={modalDeleteState} onClose={closeModalDelete}>
+      <ModalDelete>
+      <ModalHeader>
+          <div>
+            <AiFillCar />
+            <h1>Delete Car</h1>
+          </div>
+          <Btn onClick={closeModalDelete}>
+            <AiOutlineClose />
+          </Btn>
+          <p> Deseja deletar o <strong> {modalCar.name} </strong> ? </p>
+        </ModalHeader>
+        <Button className="modal" onClick={() => deleteCar(modalCar.id)} >Delete</Button>
+        </ModalDelete>
+      </ModalContent>
     </>
   )
 }
