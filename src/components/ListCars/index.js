@@ -4,7 +4,6 @@ import { HiOutlineDotsVertical } from 'react-icons/hi'
 import { useStateValue } from '../../context/state'
 
 import InfoModal from '../InfoModal'
-// import EditModal from '../EditFormModal'
 import FormModal from '../FormModal'
 
 import { AiFillCar } from 'react-icons/ai'
