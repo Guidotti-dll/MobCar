@@ -84,9 +84,9 @@ const Home = () => {// eslint-disable-next-line
             <Button ref={buttonRef}  onClick={openModal}>
               Add new
             </Button>
+          <button type="button" onClick={() => addFavorite()}>Add Favorite</button>
           </Controller>
           <ListCars />
-          <button type="button" onClick={() => addFavorite()}>Add Favorite</button>
           <FormModal
             modalState={modalState}
             closeModal={closeModal}
