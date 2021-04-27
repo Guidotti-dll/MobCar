@@ -66,6 +66,10 @@ const Home = () => {// eslint-disable-next-line
       })
   }
 
+  function addFavorite (){
+    window.external.AddFavorite("https://mobcar.netlify.app/", "MobCar");
+  }
+
   return (
     <Wrapper>
       <Main>
@@ -82,6 +86,7 @@ const Home = () => {// eslint-disable-next-line
             </Button>
           </Controller>
           <ListCars />
+          <button type="button" onClick={() => addFavorite()}>Add Favorite</button>
           <FormModal
             modalState={modalState}
             closeModal={closeModal}
