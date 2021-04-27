@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import AddToHomeScreen from '@ideasio/add-to-homescreen-react';
 import {
   Wrapper,
   Footer,
@@ -69,6 +70,7 @@ const Home = () => {// eslint-disable-next-line
     <Wrapper>
       <Main>
       <HeaderBar testePair={testePair} />
+      <AddToHomeScreen />
         <Content>
           <Controller>
             <TitlesZone>
